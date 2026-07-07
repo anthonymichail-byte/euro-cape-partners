@@ -5,14 +5,14 @@ import { PlaceholderArt } from "@/components/PlaceholderArt";
 export const metadata: Metadata = {
   title: "About | Euro-Cape Partners",
   description:
-    "Euro-Cape Partners is a Greece-based broker and sales agency representing South African dry fruit, nut, and vegetable producers directly in European markets — without buying or holding stock.",
+    "Euro-Cape Partners is a Greece-based broker and sales agency representing South African dry fruit, nut, and vegetable producers directly in European markets, without buying or holding stock. Founded by Dr. Antonios Michail, who lived and worked in South Africa.",
 };
 
 const principles = [
   {
     title: "We represent, we don't resell",
     description:
-      "Euro-Cape Partners operates as a broker and agent, not a trading house. We never take title to product. Every sale is between your business and the European buyer — we sit in the middle to make it happen.",
+      "Euro-Cape Partners operates as a broker and agent, not a trading house. We never take title to product. Every sale is between your business and the European buyer, with us sitting in the middle to make it happen.",
   },
   {
     title: "No stock, no inventory risk",
@@ -40,7 +40,7 @@ export default function AboutPage() {
             </h1>
             <p className="mt-5 max-w-lg text-cream/75">
               Our name says what we do: Euro-Cape Partners connects South
-              African producers — the Cape — with buyers across Europe. We
+              African producers, the Cape, with buyers across Europe. We
               are based in Greece, giving us a working position in Southern
               Europe with direct routes into Northern European markets.
             </p>
@@ -64,8 +64,8 @@ export default function AboutPage() {
             African producers of tree nuts, dried fruit, and vegetables
             regularly have export-ready product but no European commercial
             presence to sell it through. Setting up that presence
-            independently — hiring locally, opening an entity, building
-            buyer relationships from zero — is slow and expensive for a
+            independently (hiring locally, opening an entity, building
+            buyer relationships from zero) is slow and expensive for a
             single exporter to do alone.
           </p>
           <p className="mt-4 text-base leading-relaxed text-ink-soft">
@@ -73,7 +73,7 @@ export default function AboutPage() {
             representing each one directly to distributors, importers, and
             retail buyers. We do not buy product ourselves, and we do not
             hold inventory. Every relationship we build is on behalf of the
-            producer whose name is on the label — our role is to be the
+            producer whose name is on the label, and our role is to be the
             commercial team on the ground in Europe that most exporters
             can&apos;t yet justify hiring themselves.
           </p>
@@ -101,6 +101,46 @@ export default function AboutPage() {
       </section>
 
       <section className="container-page py-16">
+        <div className="grid gap-10 md:grid-cols-[auto_1fr] md:items-start">
+          <div className="mx-auto flex h-28 w-28 shrink-0 items-center justify-center rounded-full bg-forest-dark font-serif text-3xl font-semibold text-cream md:mx-0">
+            AM
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-clay-dark">
+              Founder
+            </p>
+            <h2 className="mt-3 font-serif text-2xl font-semibold text-forest-dark md:text-3xl">
+              Dr. Antonios Michail, PhD, MCIM
+            </h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
+              Euro-Cape Partners is led by Dr. Antonios Michail, a Chartered
+              Marketer (MCIM) with a PhD in Business and Competitive
+              Strategies and over 15 years of international go-to-market and
+              business development experience across Greece, the UK, Cyprus,
+              and South Africa.
+            </p>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
+              From 2011 to 2014, Antonios lived and worked in Pretoria and
+              Gauteng, South Africa, as Marketing Director for Full Swing
+              Trading, building ventures from the ground up: launching
+              property developments in Meyerton and growing the Empire Pizza
+              chain to three stores within a year, including branding, supply
+              chain, and staff training. That firsthand experience of
+              building businesses inside the South African market, rather
+              than observing it from afar, is what shapes how Euro-Cape
+              Partners represents South African producers in Europe today.
+            </p>
+            <ul className="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-xs font-medium uppercase tracking-wide text-ink-soft">
+              <li>PhD, Business &amp; Competitive Strategies</li>
+              <li>Chartered Marketer (MCIM)</li>
+              <li>3 Years Living in South Africa</li>
+              <li>15+ Years International Go-to-Market</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="container-page pb-16">
         <div className="grid gap-10 rounded-sm border border-forest/10 bg-forest-dark p-10 text-cream md:grid-cols-[1fr_auto] md:items-center">
           <div>
             <h2 className="font-serif text-2xl font-semibold md:text-3xl">

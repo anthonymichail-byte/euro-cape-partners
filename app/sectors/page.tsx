@@ -5,7 +5,7 @@ import { PlaceholderArt } from "@/components/PlaceholderArt";
 export const metadata: Metadata = {
   title: "Sectors | Euro-Cape Partners",
   description:
-    "Euro-Cape Partners focuses on tree nuts, dried fruits, and vegetables and general food products from South Africa — representing producers in these categories across European markets.",
+    "Euro-Cape Partners focuses on tree nuts, dried fruits, and vegetables and general food products from South Africa, representing producers in these categories across European markets.",
 };
 
 const sectors = [
@@ -20,7 +20,7 @@ const sectors = [
     title: "Dried Fruits",
     example: "Raisins, apricots, prunes, figs, mixed dried fruit",
     description:
-      "The Cape's dried fruit sector — from raisins to stone fruit — has a long trading relationship with Europe. We build on that history with direct distributor and buyer relationships for both bulk and consumer-packaged formats.",
+      "The Cape's dried fruit sector, from raisins to stone fruit, has a long trading relationship with Europe. We build on that history with direct distributor and buyer relationships for both bulk and consumer-packaged formats.",
     pattern: "orchard" as const,
   },
   {
@@ -41,7 +41,7 @@ export default function SectorsPage() {
             Sectors
           </p>
           <h1 className="mt-4 max-w-2xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
-            Focused on dry goods and produce — nothing else.
+            Focused on dry goods and produce. Nothing else.
           </h1>
           <p className="mt-5 max-w-xl text-cream/75">
             We work exclusively with South African producers of tree nuts,
@@ -62,7 +62,7 @@ export default function SectorsPage() {
               }`}
             >
               <PlaceholderArt
-                alt={`${sector.title} — ${sector.example} — sourced from South African producers for the European market`}
+                alt={`${sector.title}: ${sector.example}, sourced from South African producers for the European market`}
                 variant={i === 1 ? "clay" : i === 2 ? "sand" : "forest"}
                 pattern={sector.pattern}
                 className="h-64 w-full md:h-96"

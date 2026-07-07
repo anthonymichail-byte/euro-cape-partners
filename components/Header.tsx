@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -12,12 +13,22 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-forest/10 bg-cream/95 backdrop-blur">
       <div className="container-page flex h-20 items-center justify-between">
-        <Link href="/" className="flex flex-col leading-none" onClick={() => setOpen(false)}>
-          <span className="font-serif text-xl font-semibold tracking-tight text-forest-dark">
-            {site.name}
-          </span>
-          <span className="mt-1 text-[11px] uppercase tracking-[0.18em] text-ink-soft">
-            {site.tagline}
+        <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+          <Image
+            src="/brand/favicon-512.png"
+            alt="Euro-Cape Partners logo"
+            width={44}
+            height={44}
+            className="h-11 w-11 rounded-lg"
+            priority
+          />
+          <span className="flex flex-col leading-none">
+            <span className="font-serif text-xl font-semibold tracking-tight text-forest-dark">
+              {site.name}
+            </span>
+            <span className="mt-1 text-[11px] uppercase tracking-[0.18em] text-ink-soft">
+              {site.tagline}
+            </span>
           </span>
         </Link>
 

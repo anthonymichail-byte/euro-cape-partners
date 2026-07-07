@@ -5,14 +5,14 @@ import { PlaceholderArt } from "@/components/PlaceholderArt";
 export const metadata: Metadata = {
   title: "Services | Euro-Cape Partners",
   description:
-    "European distributor search, buyer prospecting, and sales representation for South African dry fruit, nut, and vegetable producers — plus trade fair support, market entry strategy, and export documentation.",
+    "European distributor search, buyer prospecting, and sales representation for South African dry fruit, nut, and vegetable producers, plus trade fair support, market entry strategy, and export documentation.",
 };
 
 const coreServices = [
   {
     title: "European Distributor Search",
     description:
-      "We map the distributor landscape for your specific category — tree nuts, dried fruit, or vegetables — and shortlist importers with the retail footprint, cold-chain or dry-goods handling, and volume appetite to match your production.",
+      "We map the distributor landscape for your specific category (tree nuts, dried fruit, or vegetables) and shortlist importers with the retail footprint, cold-chain or dry-goods handling, and volume appetite to match your production.",
   },
   {
     title: "Buyer Prospecting & Lead Generation",
@@ -22,7 +22,7 @@ const coreServices = [
   {
     title: "Sales Representation",
     description:
-      "Ongoing commercial representation: price negotiation, contract terms, order follow-through, and relationship management — so buyers deal with a European point of contact who knows your business.",
+      "Ongoing commercial representation: price negotiation, contract terms, order follow-through, and relationship management, so buyers deal with a European point of contact who knows your business.",
   },
 ];
 
@@ -60,7 +60,7 @@ const expandedServices = [
   {
     title: "Product Positioning",
     description:
-      "Category and shelf positioning advice — private label vs. branded, premium vs. volume — matched to how each market actually buys.",
+      "Category and shelf positioning advice, private label vs. branded, premium vs. volume, matched to how each market actually buys.",
   },
   {
     title: "AI-Powered Sales Automation",
@@ -78,12 +78,12 @@ export default function ServicesPage() {
             Services
           </p>
           <h1 className="mt-4 max-w-2xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
-            Everything a European sales office does — without the office.
+            Everything a European sales office does, without the office.
           </h1>
           <p className="mt-5 max-w-xl text-cream/75">
             Core commercial services form the backbone of the relationship.
-            Expanded services support specific moments — a trade fair, a new
-            market, a pricing review — as your export program grows.
+            Expanded services support specific moments (a trade fair, a new
+            market, a pricing review) as your export program grows.
           </p>
         </div>
       </section>

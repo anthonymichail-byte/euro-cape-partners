@@ -53,7 +53,7 @@ export function ContactForm() {
           Message sent.
         </p>
         <p className="mt-2 text-sm text-ink-soft">
-          Thank you — we&apos;ll be in touch shortly.
+          Thank you. We&apos;ll be in touch shortly.
         </p>
       </div>
     );
