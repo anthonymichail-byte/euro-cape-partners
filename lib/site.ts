@@ -3,6 +3,7 @@ export const site = {
   tagline: "Your European Sales Office",
   email: "hello@eurocapepartners.com",
   location: "Athens, Greece",
+  url: "https://eurocapepartners.com",
   formspreeId: process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "",
 };
 

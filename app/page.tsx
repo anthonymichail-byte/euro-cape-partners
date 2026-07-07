@@ -2,7 +2,16 @@ import Link from "next/link";
 import { CratesIllustration, PortIllustration } from "@/components/Illustrations";
 import { Reveal } from "@/components/Reveal";
 import { Faq } from "@/components/Faq";
+import { OrganizationJsonLd } from "@/components/OrganizationJsonLd";
 import { site } from "@/lib/site";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Euro-Cape Partners | Your European Sales Office",
+  description:
+    "Euro-Cape Partners helps South African dry fruit, nut, and vegetable producers enter and grow in European markets, acting as their outsourced European sales office. Distributor search, buyer prospecting, and sales representation across Southern and Northern Europe.",
+  path: "/",
+});
 
 const coreServices = [
   {
@@ -43,6 +52,7 @@ const trustPoints = [
 export default function Home() {
   return (
     <>
+      <OrganizationJsonLd />
       <section className="relative overflow-hidden bg-forest-dark text-cream">
         <div className="container-page relative z-10 grid gap-12 py-20 md:grid-cols-2 md:items-center md:py-28">
           <div>

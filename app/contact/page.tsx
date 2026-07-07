@@ -1,16 +1,19 @@
-import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { site } from "@/lib/site";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Contact | Euro-Cape Partners",
   description:
     "Get in touch with Euro-Cape Partners about European sales representation for your South African dry fruit, nut, or vegetable export business.",
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
     <section className="py-16 md:py-20">
+      <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }]} />
       <div className="container-page grid gap-12 md:grid-cols-[1.1fr_1fr]">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-clay-dark">

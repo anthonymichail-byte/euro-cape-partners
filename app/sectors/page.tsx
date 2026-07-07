@@ -1,12 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PlaceholderArt } from "@/components/PlaceholderArt";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Sectors | Euro-Cape Partners",
   description:
     "Euro-Cape Partners focuses on tree nuts, dried fruits, and vegetables and general food products from South Africa, representing producers in these categories across European markets.",
-};
+  path: "/sectors",
+});
 
 const sectors = [
   {
@@ -35,6 +37,7 @@ const sectors = [
 export default function SectorsPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: "Sectors", path: "/sectors" }]} />
       <section className="bg-forest-dark py-16 text-cream md:py-20">
         <div className="container-page">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sand">
@@ -62,7 +65,7 @@ export default function SectorsPage() {
               }`}
             >
               <PlaceholderArt
-                alt={`${sector.title}: ${sector.example}, sourced from South African producers for the European market`}
+                alt={`South African ${sector.title.toLowerCase()} (${sector.example.toLowerCase()}) ready for export to European markets`}
                 variant={i === 1 ? "clay" : i === 2 ? "sand" : "forest"}
                 pattern={sector.pattern}
                 className="h-64 w-full md:h-96"

@@ -3,6 +3,8 @@ import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { site } from "@/lib/site";
+import { buildMetadata } from "@/lib/seo";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -15,9 +17,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Euro-Cape Partners | Your European Sales Office",
-  description:
-    "Euro-Cape Partners helps South African dry fruit, nut, and vegetable producers enter and grow in European markets, acting as their outsourced European sales office. Distributor search, buyer prospecting, and sales representation across Southern and Northern Europe.",
+  metadataBase: new URL(site.url),
+  ...buildMetadata({
+    title: "Euro-Cape Partners | Your European Sales Office",
+    description:
+      "Euro-Cape Partners helps South African dry fruit, nut, and vegetable producers enter and grow in European markets, acting as their outsourced European sales office. Distributor search, buyer prospecting, and sales representation across Southern and Northern Europe.",
+    path: "/",
+  }),
   keywords: [
     "South African food export",
     "European distributor search",

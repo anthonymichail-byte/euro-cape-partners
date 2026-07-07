@@ -1,12 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PlaceholderArt } from "@/components/PlaceholderArt";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { ServiceJsonLd } from "@/components/ServiceJsonLd";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Services | Euro-Cape Partners",
   description:
     "European distributor search, buyer prospecting, and sales representation for South African dry fruit, nut, and vegetable producers, plus trade fair support, market entry strategy, and export documentation.",
-};
+  path: "/services",
+});
 
 const coreServices = [
   {
@@ -72,6 +75,8 @@ const expandedServices = [
 export default function ServicesPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: "Services", path: "/services" }]} />
+      <ServiceJsonLd />
       <section className="bg-forest-dark py-16 text-cream md:py-20">
         <div className="container-page">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sand">
@@ -153,7 +158,7 @@ export default function ServicesPage() {
 
       <section className="container-page pb-16">
         <PlaceholderArt
-          alt="European trade fair hall with sample displays of nuts and dried fruit at a Euro-Cape Partners stand"
+          alt="South African macadamia nuts and dried fruit samples displayed at a European trade fair stand for export buyers"
           variant="sand"
           pattern="grove"
           className="h-64 w-full md:h-80"

@@ -1,12 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PlaceholderArt } from "@/components/PlaceholderArt";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "About | Euro-Cape Partners",
   description:
-    "Euro-Cape Partners is a Greece-based broker and sales agency representing South African dry fruit, nut, and vegetable producers directly in European markets, without buying or holding stock. Founded by Dr. Antonios Michail, who lived and worked in South Africa.",
-};
+    "A Greece-based broker representing South African dry fruit, nut, and vegetable producers across Europe. Founded by Dr. Antonios Michail, who lived and worked in South Africa.",
+  path: "/about",
+});
 
 const principles = [
   {
@@ -29,6 +31,7 @@ const principles = [
 export default function AboutPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Home", path: "/" }, { name: "About", path: "/about" }]} />
       <section className="bg-forest-dark py-16 text-cream md:py-20">
         <div className="container-page grid gap-12 md:grid-cols-2 md:items-center">
           <div>
@@ -46,7 +49,7 @@ export default function AboutPage() {
             </p>
           </div>
           <PlaceholderArt
-            alt="Stylized trade route map connecting the Cape of South Africa to ports in Southern and Northern Europe"
+            alt="Trade route map showing South African food exports moving from the Cape to distributors in Southern and Northern Europe"
             variant="sand"
             pattern="map"
             className="h-72 w-full md:h-96"
