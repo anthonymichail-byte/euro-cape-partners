@@ -1,0 +1,102 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { PlaceholderArt } from "@/components/PlaceholderArt";
+
+export const metadata: Metadata = {
+  title: "Sectors | Euro-Cape Partners",
+  description:
+    "Euro-Cape Partners focuses on tree nuts, dried fruits, and vegetables and general food products from South Africa — representing producers in these categories across European markets.",
+};
+
+const sectors = [
+  {
+    title: "Tree Nuts",
+    example: "Macadamias, pecans, almonds",
+    description:
+      "South Africa is one of the world's leading macadamia producers, and its wider tree nut sector produces to exacting export standards. We represent growers and processors selling in-shell, kernel, and value-added nut products into European retail, food-service, and industrial-ingredient channels.",
+    pattern: "grove" as const,
+  },
+  {
+    title: "Dried Fruits",
+    example: "Raisins, apricots, prunes, figs, mixed dried fruit",
+    description:
+      "The Cape's dried fruit sector — from raisins to stone fruit — has a long trading relationship with Europe. We build on that history with direct distributor and buyer relationships for both bulk and consumer-packaged formats.",
+    pattern: "orchard" as const,
+  },
+  {
+    title: "Vegetables & General Food Products",
+    example: "Fresh and processed vegetables, pulses, general food products",
+    description:
+      "Beyond nuts and dried fruit, we represent producers of fresh and processed vegetables and other general food products, matching each product's shelf life and handling requirements to the right European buyer and route to market.",
+    pattern: "crates" as const,
+  },
+];
+
+export default function SectorsPage() {
+  return (
+    <>
+      <section className="bg-forest-dark py-16 text-cream md:py-20">
+        <div className="container-page">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sand">
+            Sectors
+          </p>
+          <h1 className="mt-4 max-w-2xl font-serif text-4xl font-semibold leading-tight md:text-5xl">
+            Focused on dry goods and produce — nothing else.
+          </h1>
+          <p className="mt-5 max-w-xl text-cream/75">
+            We work exclusively with South African producers of tree nuts,
+            dried fruits, vegetables, and general food products. Category
+            focus means our distributor and buyer network is deep, not
+            broad.
+          </p>
+        </div>
+      </section>
+
+      <section className="container-page py-16">
+        <div className="space-y-16">
+          {sectors.map((sector, i) => (
+            <div
+              key={sector.title}
+              className={`grid gap-10 md:grid-cols-2 md:items-center ${
+                i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
+              }`}
+            >
+              <PlaceholderArt
+                alt={`${sector.title} — ${sector.example} — sourced from South African producers for the European market`}
+                variant={i === 1 ? "clay" : i === 2 ? "sand" : "forest"}
+                pattern={sector.pattern}
+                className="h-64 w-full md:h-96"
+              />
+              <div>
+                <span className="font-serif text-3xl text-clay">0{i + 1}</span>
+                <h2 className="mt-3 font-serif text-2xl font-semibold text-forest-dark md:text-3xl">
+                  {sector.title}
+                </h2>
+                <p className="mt-1 text-sm font-medium uppercase tracking-wide text-ink-soft">
+                  {sector.example}
+                </p>
+                <p className="mt-4 max-w-lg text-base leading-relaxed text-ink-soft">
+                  {sector.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-sand py-16">
+        <div className="container-page flex flex-col items-center gap-6 text-center">
+          <h2 className="max-w-xl font-serif text-2xl font-semibold text-forest-dark md:text-3xl">
+            Producing in one of these categories and export-ready?
+          </h2>
+          <Link
+            href="/contact"
+            className="rounded-sm bg-forest-dark px-8 py-3.5 text-sm font-semibold tracking-wide text-cream transition-colors hover:bg-forest"
+          >
+            Get in Touch
+          </Link>
+        </div>
+      </section>
+    </>
+  );
+}
