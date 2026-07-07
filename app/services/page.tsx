@@ -5,9 +5,9 @@ import { ServiceJsonLd } from "@/components/ServiceJsonLd";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Services | Euro-Cape Partners",
+  title: "European Distributor Search, Buyer Prospecting & Sales Representation | Euro-Cape Partners",
   description:
-    "European distributor search, buyer prospecting, and sales representation for South African dry fruit, nut, and vegetable producers, plus trade fair support, market entry strategy, and export documentation.",
+    "From distributor search to sales representation and EU market entry strategy, Euro-Cape Partners gives South African food exporters a dedicated European commercial team without the overhead of an in-house office.",
   path: "/services",
 });
 

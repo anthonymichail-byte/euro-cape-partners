@@ -4,9 +4,9 @@ import { site } from "@/lib/site";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Contact | Euro-Cape Partners",
+  title: "Contact Euro-Cape Partners | Start Your European Market Entry",
   description:
-    "Get in touch with Euro-Cape Partners about European sales representation for your South African dry fruit, nut, or vegetable export business.",
+    "Get in touch with Euro-Cape Partners to discuss European distributor search, buyer prospecting, and sales representation for your South African dried fruit, nut, or vegetable export business.",
   path: "/contact",
 });
 

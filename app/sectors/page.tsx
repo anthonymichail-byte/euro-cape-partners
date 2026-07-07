@@ -4,9 +4,9 @@ import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Sectors | Euro-Cape Partners",
+  title: "Tree Nuts, Dried Fruit & Vegetable Export Markets | Euro-Cape Partners",
   description:
-    "Euro-Cape Partners focuses on tree nuts, dried fruits, and vegetables and general food products from South Africa, representing producers in these categories across European markets.",
+    "Specialist European market entry support for South African tree nut (including macadamia), dried fruit, and vegetable producers seeking distribution across Belgium, Scandinavia, Spain, and beyond.",
   path: "/sectors",
 });
 

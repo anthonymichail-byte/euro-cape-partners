@@ -19,9 +19,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   ...buildMetadata({
-    title: "Euro-Cape Partners | Your European Sales Office",
+    title: "Euro-Cape Partners | Your European Sales Office for South African Food Exporters",
     description:
-      "Euro-Cape Partners helps South African dry fruit, nut, and vegetable producers enter and grow in European markets, acting as their outsourced European sales office. Distributor search, buyer prospecting, and sales representation across Southern and Northern Europe.",
+      "Euro-Cape Partners connects premium South African dried fruit, nut, and vegetable producers with European distributors and buyers. Your commission-based European sales office, no inventory risk, direct market access.",
     path: "/",
   }),
   keywords: [

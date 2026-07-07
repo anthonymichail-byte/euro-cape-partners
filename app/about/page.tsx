@@ -4,9 +4,9 @@ import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "About | Euro-Cape Partners",
+  title: "About Euro-Cape Partners | European Market Entry Specialists for South African Food Producers",
   description:
-    "A Greece-based broker representing South African dry fruit, nut, and vegetable producers across Europe. Founded by Dr. Antonios Michail, who lived and worked in South Africa.",
+    "Based in Greece, Euro-Cape Partners represents South African food producers directly in European markets, a broker model built on aligned incentives, not bulk trading or inventory risk.",
   path: "/about",
 });
 
