@@ -18,7 +18,6 @@ const MAX_LENGTHS = {
 function sanitize(input: string): string {
   return input
     .replace(/[\r\n\t]/g, " ")
-    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]/g, "")
     .replace(/[<>]/g, "")
     .trim();

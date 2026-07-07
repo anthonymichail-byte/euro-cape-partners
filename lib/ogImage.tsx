@@ -32,6 +32,7 @@ export async function renderOgImage() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={logoSrc}
+          alt=""
           width={140}
           height={140}
           style={{ borderRadius: 28 }}
