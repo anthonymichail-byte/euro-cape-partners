@@ -4,7 +4,6 @@ export const site = {
   email: "hello@eurocapepartners.com",
   location: "Athens, Greece",
   url: "https://eurocapepartners.com",
-  formspreeId: process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "",
 };
 
 export const nav = [

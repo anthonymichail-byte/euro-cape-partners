@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { site } from "@/lib/site";
 
-type Status = "idle" | "submitting" | "success" | "error";
+type Status = "idle" | "submitting" | "success" | "error" | "rate_limited";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -12,6 +12,7 @@ export function ContactForm() {
     company: "",
     email: "",
     message: "",
+    website: "", // honeypot: real users never fill this in
   });
 
   const mailtoHref = `mailto:${site.email}?subject=${encodeURIComponent(
@@ -22,25 +23,34 @@ export function ContactForm() {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
-    if (!site.formspreeId) {
-      window.location.href = mailtoHref;
-      return;
-    }
-
     setStatus("submitting");
+
     try {
-      const res = await fetch(`https://formspree.io/f/${site.formspreeId}`, {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { Accept: "application/json" },
-        body: new FormData(e.currentTarget),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
       });
-      if (res.ok) {
+      const data = await res.json().catch(() => null);
+
+      if (data?.ok) {
         setStatus("success");
-        setValues({ name: "", company: "", email: "", message: "" });
-      } else {
-        setStatus("error");
+        setValues({ name: "", company: "", email: "", message: "", website: "" });
+        return;
       }
+
+      if (data?.reason === "not_configured") {
+        window.location.href = mailtoHref;
+        setStatus("idle");
+        return;
+      }
+
+      if (data?.reason === "rate_limited") {
+        setStatus("rate_limited");
+        return;
+      }
+
+      setStatus("error");
     } catch {
       setStatus("error");
     }
@@ -61,6 +71,21 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      {/* Honeypot field: visually hidden from sighted users, skipped by
+          screen readers, but present in the DOM for bots to fill in. */}
+      <div className="absolute left-[-9999px] top-auto h-0 w-0 overflow-hidden" aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={values.website}
+          onChange={(e) => setValues((v) => ({ ...v, website: e.target.value }))}
+        />
+      </div>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
@@ -131,6 +156,18 @@ export function ContactForm() {
             {site.email}
           </a>
           .
+        </p>
+      )}
+
+      {status === "rate_limited" && (
+        <p className="text-sm text-clay-dark">
+          You&apos;ve sent several messages recently, so we&apos;ve paused
+          submissions from this connection for a bit. Please email us
+          directly at{" "}
+          <a href={`mailto:${site.email}`} className="underline">
+            {site.email}
+          </a>{" "}
+          in the meantime.
         </p>
       )}
 
