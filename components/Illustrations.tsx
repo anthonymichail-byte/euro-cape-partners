@@ -148,3 +148,75 @@ export function PortIllustration({ alt, className = "" }: IllustrationProps) {
     </div>
   );
 }
+
+/**
+ * Custom illustration standing in for real trade-route mapping graphics.
+ * Light background by design, to sit as a contrast panel against a dark
+ * hero section.
+ */
+export function TradeRouteIllustration({ alt, className = "" }: IllustrationProps) {
+  return (
+    <div
+      role="img"
+      aria-label={alt}
+      className={`relative overflow-hidden rounded-sm bg-gradient-to-br from-sand-dark via-sand to-cream ${className}`}
+    >
+      <svg
+        viewBox="0 0 640 480"
+        preserveAspectRatio="xMidYMid slice"
+        className="absolute inset-0 h-full w-full"
+      >
+        {/* latitude/longitude map lines */}
+        <g className="stroke-forest-dark/15" strokeWidth="2" fill="none">
+          <path d="M-20 120 Q 320 60 660 120" />
+          <path d="M-20 240 Q 320 200 660 240" />
+          <path d="M-20 360 Q 320 320 660 360" />
+          <path d="M120 -20 Q 160 240 120 500" />
+          <path d="M320 -20 Q 360 240 320 500" />
+          <path d="M520 -20 Q 560 240 520 500" />
+        </g>
+
+        {/* route line from the Cape to Greece/Europe */}
+        <path
+          d="M120 380 C 220 300, 260 220, 340 190 S 460 130, 500 100"
+          fill="none"
+          className="stroke-clay"
+          strokeWidth="4"
+          strokeDasharray="2 14"
+          strokeLinecap="round"
+        />
+
+        {/* small plane marker along the route */}
+        <g transform="translate(330, 205) rotate(-35)">
+          <path
+            d="M0 0 L18 4 L0 8 L4 4 Z"
+            className="fill-forest-dark"
+          />
+        </g>
+
+        {/* origin pin: the Cape */}
+        <g transform="translate(120, 380)">
+          <circle r="26" className="fill-forest-dark/10" />
+          <path
+            d="M0 -16 C 9 -16 16 -9 16 0 C 16 11 0 26 0 26 C 0 26 -16 11 -16 0 C -16 -9 -9 -16 0 -16 Z"
+            className="fill-forest-dark"
+          />
+          <circle r="5" cy="-2" className="fill-cream" />
+        </g>
+
+        {/* destination pin: Greece / Europe */}
+        <g transform="translate(500, 100)">
+          <circle r="26" className="fill-clay/15" />
+          <path
+            d="M0 -16 C 9 -16 16 -9 16 0 C 16 11 0 26 0 26 C 0 26 -16 11 -16 0 C -16 -9 -9 -16 0 -16 Z"
+            className="fill-clay-dark"
+          />
+          <circle r="5" cy="-2" className="fill-cream" />
+        </g>
+      </svg>
+      <span className="absolute bottom-3 left-3 right-3 text-xs tracking-wide text-ink/70">
+        {alt}
+      </span>
+    </div>
+  );
+}

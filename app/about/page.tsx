@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { PlaceholderArt } from "@/components/PlaceholderArt";
+import { TradeRouteIllustration } from "@/components/Illustrations";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -48,10 +49,8 @@ export default function AboutPage() {
               Europe with direct routes into Northern European markets.
             </p>
           </div>
-          <PlaceholderArt
+          <TradeRouteIllustration
             alt="Trade route map showing South African food exports moving from the Cape to distributors in Southern and Northern Europe"
-            variant="sand"
-            pattern="map"
             className="h-72 w-full md:h-96"
           />
         </div>
@@ -89,15 +88,18 @@ export default function AboutPage() {
             How We Operate
           </h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {principles.map((principle) => (
-              <div key={principle.title} className="rounded-sm border border-forest/10 bg-cream p-8">
-                <h3 className="font-serif text-lg font-semibold text-forest-dark">
-                  {principle.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                  {principle.description}
-                </p>
-              </div>
+            {principles.map((principle, i) => (
+              <Reveal key={principle.title} delayMs={i * 120}>
+                <div className="group h-full rounded-sm border border-forest/10 bg-cream p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-clay/30 hover:shadow-xl hover:shadow-forest-dark/10">
+                  <h3 className="font-serif text-lg font-semibold text-forest-dark transition-colors group-hover:text-clay-dark">
+                    {principle.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+                    {principle.description}
+                  </p>
+                  <span className="mt-6 block h-0.5 w-10 bg-clay transition-all duration-300 group-hover:w-full" />
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -133,9 +135,22 @@ export default function AboutPage() {
               than observing it from afar, is what shapes how Euro-Cape
               Partners represents South African producers in Europe today.
             </p>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
+              Euro-Cape Partners is powered by{" "}
+              <span className="font-semibold text-forest-dark">
+                Think Growth Consulting
+              </span>
+              , the international growth and go-to-market consultancy
+              Antonios founded in 2018. As Managing Director, he has advised
+              more than 30 companies across Greece, the UK, Cyprus, and South
+              Africa on strategy, market entry, and go-to-market execution,
+              the same discipline behind how Euro-Cape Partners builds each
+              producer&apos;s route into Europe.
+            </p>
             <ul className="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-xs font-medium uppercase tracking-wide text-ink-soft">
               <li>PhD, Business &amp; Competitive Strategies</li>
               <li>Chartered Marketer (MCIM)</li>
+              <li>Founder, Think Growth Consulting</li>
               <li>3 Years Living in South Africa</li>
               <li>15+ Years International Go-to-Market</li>
             </ul>

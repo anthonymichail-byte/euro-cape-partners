@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PlaceholderArt } from "@/components/PlaceholderArt";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -58,31 +59,37 @@ export default function SectorsPage() {
       <section className="container-page py-16">
         <div className="space-y-16">
           {sectors.map((sector, i) => (
-            <div
-              key={sector.title}
-              className={`grid gap-10 md:grid-cols-2 md:items-center ${
-                i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
-              }`}
-            >
-              <PlaceholderArt
-                alt={`South African ${sector.title.toLowerCase()} (${sector.example.toLowerCase()}) ready for export to European markets`}
-                variant={i === 1 ? "clay" : i === 2 ? "sand" : "forest"}
-                pattern={sector.pattern}
-                className="h-64 w-full md:h-96"
-              />
-              <div>
-                <span className="font-serif text-3xl text-clay">0{i + 1}</span>
-                <h2 className="mt-3 font-serif text-2xl font-semibold text-forest-dark md:text-3xl">
-                  {sector.title}
-                </h2>
-                <p className="mt-1 text-sm font-medium uppercase tracking-wide text-ink-soft">
-                  {sector.example}
-                </p>
-                <p className="mt-4 max-w-lg text-base leading-relaxed text-ink-soft">
-                  {sector.description}
-                </p>
+            <Reveal key={sector.title} delayMs={i * 120}>
+              <div
+                className={`group grid gap-10 md:grid-cols-2 md:items-center ${
+                  i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
+                }`}
+              >
+                <div className="overflow-hidden rounded-sm">
+                  <PlaceholderArt
+                    alt={`South African ${sector.title.toLowerCase()} (${sector.example.toLowerCase()}) ready for export to European markets`}
+                    variant={i === 1 ? "clay" : i === 2 ? "sand" : "forest"}
+                    pattern={sector.pattern}
+                    className="h-64 w-full transition-transform duration-500 ease-out group-hover:scale-105 md:h-96"
+                  />
+                </div>
+                <div>
+                  <span className="font-serif text-3xl text-clay transition-transform duration-300 group-hover:scale-110 group-hover:text-clay-dark">
+                    0{i + 1}
+                  </span>
+                  <h2 className="mt-3 font-serif text-2xl font-semibold text-forest-dark transition-colors md:text-3xl group-hover:text-clay-dark">
+                    {sector.title}
+                  </h2>
+                  <p className="mt-1 text-sm font-medium uppercase tracking-wide text-ink-soft">
+                    {sector.example}
+                  </p>
+                  <p className="mt-4 max-w-lg text-base leading-relaxed text-ink-soft">
+                    {sector.description}
+                  </p>
+                  <span className="mt-6 block h-0.5 w-10 bg-clay transition-all duration-300 group-hover:w-24" />
+                </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>

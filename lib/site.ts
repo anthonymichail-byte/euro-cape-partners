@@ -2,7 +2,7 @@ export const site = {
   name: "Euro-Cape Partners",
   tagline: "Your European Sales Office",
   email: "hello@eurocapepartners.com",
-  location: "Athens, Greece",
+  location: "Xenofonta 54, Gerakas 15344, Attiki, Greece",
   url: "https://eurocapepartners.com",
 };
 

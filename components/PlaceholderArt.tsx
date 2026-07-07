@@ -11,6 +11,14 @@ const variantStyles: Record<NonNullable<PlaceholderArtProps["variant"]>, string>
   clay: "from-clay-dark via-clay to-sand-dark",
 };
 
+// The "sand" variant is a light background, so its caption needs dark text;
+// "forest" and "clay" are dark backgrounds and need the light caption.
+const captionStyles: Record<NonNullable<PlaceholderArtProps["variant"]>, string> = {
+  forest: "text-cream/70",
+  sand: "text-ink/70",
+  clay: "text-cream/70",
+};
+
 /**
  * Stand-in for on-site photography. Each instance documents, via `alt`,
  * the real photo a producer/agency would supply at launch (e.g. macadamia
@@ -59,7 +67,7 @@ export function PlaceholderArt({
         </defs>
         <rect width="100%" height="100%" fill={`url(#pattern-${pattern})`} className="text-cream" />
       </svg>
-      <span className="absolute bottom-3 left-3 right-3 text-xs tracking-wide text-cream/70">
+      <span className={`absolute bottom-3 left-3 right-3 text-xs tracking-wide ${captionStyles[variant]}`}>
         {alt}
       </span>
     </div>

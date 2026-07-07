@@ -2,6 +2,7 @@ import Link from "next/link";
 import { PlaceholderArt } from "@/components/PlaceholderArt";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { ServiceJsonLd } from "@/components/ServiceJsonLd";
+import { Reveal } from "@/components/Reveal";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -99,15 +100,20 @@ export default function ServicesPage() {
         </h2>
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {coreServices.map((service, i) => (
-            <div key={service.title} className="rounded-sm border border-forest/10 bg-sand p-8">
-              <span className="font-serif text-3xl text-clay">0{i + 1}</span>
-              <h3 className="mt-4 font-serif text-xl font-semibold text-forest-dark">
-                {service.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                {service.description}
-              </p>
-            </div>
+            <Reveal key={service.title} delayMs={i * 120}>
+              <div className="group h-full rounded-sm border border-forest/10 bg-sand p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-clay/30 hover:shadow-xl hover:shadow-forest-dark/10">
+                <span className="font-serif text-3xl text-clay transition-transform duration-300 group-hover:scale-110 group-hover:text-clay-dark">
+                  0{i + 1}
+                </span>
+                <h3 className="mt-4 font-serif text-xl font-semibold text-forest-dark transition-colors group-hover:text-clay-dark">
+                  {service.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+                  {service.description}
+                </p>
+                <span className="mt-6 block h-0.5 w-10 bg-clay transition-all duration-300 group-hover:w-full" />
+              </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -121,15 +127,18 @@ export default function ServicesPage() {
             Brought in alongside core representation as your needs evolve.
           </p>
           <div className="mt-8 grid gap-px overflow-hidden rounded-sm border border-forest/10 bg-forest/10 sm:grid-cols-2 lg:grid-cols-4">
-            {expandedServices.map((service) => (
-              <div key={service.title} className="bg-cream p-6">
-                <h3 className="font-serif text-base font-semibold text-forest-dark">
-                  {service.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-                  {service.description}
-                </p>
-              </div>
+            {expandedServices.map((service, i) => (
+              <Reveal key={service.title} delayMs={i * 60}>
+                <div className="group h-full bg-cream p-6 transition-colors duration-300 hover:bg-sand">
+                  <h3 className="font-serif text-base font-semibold text-forest-dark transition-colors group-hover:text-clay-dark">
+                    {service.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+                    {service.description}
+                  </p>
+                  <span className="mt-4 block h-0.5 w-8 bg-clay/60 transition-all duration-300 group-hover:w-16 group-hover:bg-clay" />
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
